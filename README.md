@@ -8,4 +8,4 @@
 - [ ] Implement 1-player/vs computer mode (using minimax algorithm)
 
 ## Notes
-Inspired by this [tutorial] {https://www.youtube.com/watch?v=KrH1qNVYKO0}.
+Inspired by this [tutorial](https://www.youtube.com/watch?v=KrH1qNVYKO0).
