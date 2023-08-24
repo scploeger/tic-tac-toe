@@ -1,5 +1,5 @@
 # tic-tac-toe
- Simple C++ implementation of tic-tac-toe. Text-based game runs in a terminal window.
+ Simple C++ implementation of tic-tac-toe. AI Player uses minimax algorithm to plan moves.  This text-based game runs in a terminal window.
 
  ## To-do
 - [x] Create helper functions to draw board, edit board, check winner
