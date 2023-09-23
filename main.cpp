@@ -67,6 +67,29 @@ int winner()
     return 0; // return 0 if nobody has won yet
 }
 
+int isEmpty(int location)
+{
+    int row;
+    if (location % 3 == 0)
+    {
+        row = location / 3 - 1;
+    }
+    else
+    {
+        row = location / 3;
+    }
+    int column = location - (row * 3) - 1;
+    if(board[row][column] == 'X' || board[row][column] == 'O')
+    {
+        return 0; // return 0 if the spot is already occupied
+    }
+    else
+    {
+        return 1; // return 1 if the spot is free
+    }
+
+}
+
 void switchMarker()
 {
     if (currentMarker == 'X')
@@ -108,10 +131,23 @@ void gameLoop()
         while (!full() && !winner())
         { // main game loop runs while nobody has won and game is not full
             drawBoard();
-            cout << "Player " << currentPlayer << " it's your turn. Select a square to mark with an " << currentMarker << " [0-9].";
-            int choice;
-            cin >> choice;
-            editBoard(choice);
+            int validMove = 0; // while the player has not made a valid move
+            while(validMove == 0)
+            {
+                cout << "Player " << currentPlayer << " it's your turn. Select a square to mark with an " << currentMarker << " [0-9].";
+                int choice;
+                cin >> choice;
+                if(isEmpty(choice)) // if the chosen square is empty
+                {
+                    validMove = 1; //... then proceed
+                    editBoard(choice);
+                }
+                else
+                {
+                    cout << "Invalid move - square already occupied. Try again." << endl;
+                }
+                
+            }
             winner(); // check if anybody has won
             switchMarker();
             switchPlayer();
